@@ -51,7 +51,7 @@ namespace MyLife
         }
 
 
-        private void btnDone_Click(object sender, RoutedEventArgs e)
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             if (lstOfTasks.SelectedIndex<0 || lstOfTasks.SelectedIndex >= tasks.all.Count)
             {
@@ -63,9 +63,7 @@ namespace MyLife
 
         private void btnSort_Click(object sender, RoutedEventArgs e)
         {
-            grdSort.Visibility = Visibility.Visible;
-            btn1.Content = tasks.SortStepStart().Item1.Name;
-            btn2.Content = tasks.SortStepStart().Item2.Name;
+            
 
             //MyTask mostTask;
             //int mostIndex;
@@ -99,10 +97,11 @@ namespace MyLife
                 grdSort.Visibility = Visibility.Collapsed;
             } else
             {
-                lstOfTasks.Items.Refresh();
+                
                 btn1.Content = tasks.SortStepStart().Item1.Name;
                 btn2.Content = tasks.SortStepStart().Item2.Name;
             }
+            lstOfTasks.Items.Refresh();
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
@@ -113,10 +112,31 @@ namespace MyLife
             }
             else
             {
-                lstOfTasks.Items.Refresh();
                 btn1.Content = tasks.SortStepStart().Item1.Name;
                 btn2.Content = tasks.SortStepStart().Item2.Name;
             }
+            lstOfTasks.Items.Refresh();
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            lstOfTasks.Items.Refresh();
+        }
+
+        private void btnSortPriority_Click(object sender, RoutedEventArgs e)
+        {
+            tasks.SetTypeOfSort(TypeOfSort.Priority);
+            grdSort.Visibility = Visibility.Visible;
+            btn1.Content = tasks.SortStepStart().Item1.Name;
+            btn2.Content = tasks.SortStepStart().Item2.Name;
+        }
+
+        private void btnSortUrgency_Click(object sender, RoutedEventArgs e)
+        {
+            tasks.SetTypeOfSort(TypeOfSort.Urgency);
+            grdSort.Visibility = Visibility.Visible;
+            btn1.Content = tasks.SortStepStart().Item1.Name;
+            btn2.Content = tasks.SortStepStart().Item2.Name;
         }
     }
 }

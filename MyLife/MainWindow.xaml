@@ -22,7 +22,7 @@
             <Button Grid.Column="1" Name="btnAdd" Margin="3" Click="btnAdd_Click">Add</Button>
         </Grid>
         <ListView Grid.Row="1" Name="lstOfTasks" ItemsSource="{Binding}">
-            
+
         </ListView>
         <Grid Grid.Row="2">
             <Grid>
@@ -30,15 +30,19 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnSort" Grid.Column="0" Click="btnSort_Click">
-                    Sort
+                <Button Name="btnSortPriority" Grid.Column="0" Click="btnSortPriority_Click">
+                    Sort Priority
                 </Button>
-                <Button Grid.Column="1">
-                    Save
+                <Button Name="btnSortUrgency" Grid.Column="1" Click="btnSortUrgency_Click">
+                    Sort Urgency
                 </Button>
-                <Button Name="btnDone" Grid.Column="2" Click="btnDone_Click">
-                    Done
+                <Button Name="btnRefresh" Grid.Column="2" Click="btnRefresh_Click">
+                    Refresh
+                </Button>
+                <Button Name="btnDelete" Grid.Column="3" Click="btnDelete_Click">
+                    Delete
                 </Button>
             </Grid>
         </Grid>
